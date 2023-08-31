@@ -1,92 +1,48 @@
-import './style.css'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import '../src/style.css';
+//boiler plate 
+import './scripts/boiler';
 
-/**
- * Base
- */
-// Canvas
-const canvas = document.querySelector('canvas.webgl')
+//01 basic scene
+//import './scripts/01basicscene';
 
-// Scene
-const scene = new THREE.Scene()
+//02 camera
+//import './scripts/02cameras';
 
-/**
- * Sizes
- */
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
+//03 animation
+//import './scripts/03animation';
 
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
+//04transform
+//import './scripts/04tranformation';
 
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+//o5geometry
+//import './scripts/05geometry';
 
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
+//06debug
+//import './scripts/06.debugUI';
 
-/**
- * Camera
- */
-// Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 1
-camera.position.y = 1
-camera.position.z = 1
-scene.add(camera)
+//07textures
+//import './scripts/07.textures';
 
-// Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
+//08 materials
+//import './scripts/08.materials';
 
-/**
- * Cube
- */
-const cube = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
-)
-scene.add(cube)
+//09 3D Text 
+//import './scripts/09.text';
 
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
-    antialias: true,
-})
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+//10 lights
+//import './scripts/10.lights';
 
-/**
- * Animate
- */
-const clock = new THREE.Clock()
-let lastElapsedTime = 0
+//11 Shadows
+//import './scripts/11.Shadows';
 
-const tick = () =>
-{
-    const elapsedTime = clock.getElapsedTime()
-    const deltaTime = elapsedTime - lastElapsedTime
-    lastElapsedTime = elapsedTime
+//12 Haunted House 
+//import './scripts/12.HauntedHouse';
 
-    // Update controls
-    controls.update()
+//13 particles
+//import './scripts/13.particles';
 
-    // Render
-    renderer.render(scene, camera)
+//14 galaxy
+//import './scripts/14.galaxy';
 
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
-
-tick()
+//15RayCaster 
+//import './scripts/15.RayCaster';
